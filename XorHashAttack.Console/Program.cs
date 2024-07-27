@@ -1,14 +1,16 @@
 ﻿using System.Diagnostics;
-using System.Security.Cryptography;
 using TestLib.XorAttack;
 
 const int ByteLength = 32;
 
-var data = RandomNumberGenerator.GetBytes(ByteLength);
+var data = new byte[ByteLength];
+Random.Shared.NextBytes(data);
 var permitted = new byte[ByteLength * 12][];
 for (int i = 0; i < permitted.Length; i++)
 {
-    permitted[i] = RandomNumberGenerator.GetBytes(ByteLength);
+    var entry = new byte[ByteLength];
+    Random.Shared.NextBytes(entry);
+    permitted[i] = entry;
 }
 
 Console.WriteLine("Trying to break a XOR sum for a {0} bit hash...", ByteLength * 8);
