@@ -208,7 +208,7 @@ namespace TestLib.XorAttack
                 //A zero hash should not exist here
                 if (current.Hash.All(m => m == 0))
                 {
-                    throw new InvalidDataException("Implementation error. A zero hash doesn't makes sense");
+                    throw new InvalidDataException("Implementation error. Encountered a null hash");
                 }
                 //If not in allowed list, it must be somewhere in "generatedHashes"
                 if (!allowed.Contains(current.Hash, ByteArrayComparer.Instance))
@@ -286,7 +286,7 @@ namespace TestLib.XorAttack
 
                 if (chosen == null)
                 {
-                    throw new InvalidDataException("No hash could be chosen. The list of permitted inputs is likely not long enough");
+                    throw new InvalidDataException("No hash could be chosen. The list of permitted inputs is likely not random enough.");
                 }
 
                 List<OneHot> newOneHotHashes = [];
