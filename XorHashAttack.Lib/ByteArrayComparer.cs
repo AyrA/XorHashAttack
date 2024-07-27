@@ -5,7 +5,7 @@ namespace XorHashAttack.Lib.Internals
     /// <summary>
     /// Compares byte arrays by value instead of by reference
     /// </summary>
-    internal class ByteArrayComparer : IEqualityComparer<byte[]>
+    public class ByteArrayComparer : IEqualityComparer<byte[]>
     {
         /// <summary>
         /// The sole instance
@@ -35,7 +35,8 @@ namespace XorHashAttack.Lib.Internals
         /// <param name="obj">Byte array</param>
         /// <returns>Hash code</returns>
         /// <remarks>
-        /// For performance reasons, this will at most read the first 256 entries
+        /// For performance reasons, this will at most read the first 256 entries.<br />
+        /// Note: hash codes are likely to change between application runs
         /// </remarks>
         public int GetHashCode([DisallowNull] byte[] obj)
         {
