@@ -35,11 +35,24 @@
         /// and all nodes in <see cref="Sources"/>
         /// </summary>
         /// <param name="lines">List to write mermaid lines to</param>
+        /// <param name="output">
+        /// Output to write to. If null, will not write anything.
+        /// Using null is a lot faster because it defers the duplicate checks to the very end
+        /// </param>
+        public void GenerateMermaid(IList<string> lines, TextWriter? output = null)
+            => GenerateMermaid(lines, output, null);
+
+        /// <summary>
+        /// Recursively generates a mermaid entry for this node
+        /// and all nodes in <see cref="Sources"/>
+        /// </summary>
+        /// <param name="lines">List to write mermaid lines to</param>
+        /// <param name="output">Output to write to. If null, will not write anything (faster)</param>
         /// <param name="outLine">
         /// Output line of parent entry to reference in this entry.
         /// This is null if this is the root node
         /// </param>
-        public void GenerateMermaid(IList<string> lines, TextWriter output, string? outLine = null)
+        private void GenerateMermaid(IList<string> lines, TextWriter? output, string? outLine = null)
         {
             if (Sources.Count > 0)
             {
@@ -47,10 +60,17 @@
                 foreach (var source in Sources)
                 {
                     string lineString = outLine != null ? $"{itemLine} --> {outLine}" : itemLine;
-                    if (!lines.Contains(lineString))
+                    if (output != null)
+                    {
+                        if (!lines.Contains(lineString))
+                        {
+                            lines.Add(lineString);
+                            output.WriteLine(lineString);
+                        }
+                    }
+                    else
                     {
                         lines.Add(lineString);
-                        output.WriteLine(lineString);
                     }
                     source.GenerateMermaid(lines, output, HashString);
                 }
@@ -58,10 +78,27 @@
             else
             {
                 var lineString = $"{HashString} --> {outLine}";
-                if (!lines.Contains(lineString))
+                if (output != null)
+                {
+                    if (!lines.Contains(lineString))
+                    {
+                        lines.Add(lineString);
+                        output.WriteLine(lineString);
+                    }
+                }
+                else
                 {
                     lines.Add(lineString);
-                    output.WriteLine(lineString);
+                }
+            }
+            //Root node has this set to null
+            if (outLine == null)
+            {
+                var distinct = lines.Distinct().ToList();
+                lines.Clear();
+                foreach (var item in distinct)
+                {
+                    lines.Add(item);
                 }
             }
         }
