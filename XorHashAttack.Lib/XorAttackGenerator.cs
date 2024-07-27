@@ -106,14 +106,8 @@ namespace TestLib.XorAttack
 
             //The mermaid code is based on the unoptimized hash tree.
             //This way we can see how the tree looks that the hash finder created
-            var lines = new List<string>();
-            htp.RootNode.GenerateMermaid(lines);
-            //Remove duplicate lines
-            lines = [.. lines.Distinct()];
-
-            //Write mermaid Code
             output.WriteLine("flowchart TD");
-            lines.ForEach(output.WriteLine);
+            htp.RootNode.GenerateMermaid([], output);
         }
 
         /// <summary>Checks parameters for conformity</summary>

@@ -39,27 +39,30 @@
         /// Output line of parent entry to reference in this entry.
         /// This is null if this is the root node
         /// </param>
-        public void GenerateMermaid(IList<string> lines, string? outLine = null)
+        public void GenerateMermaid(IList<string> lines, TextWriter output, string? outLine = null)
         {
             if (Sources.Count > 0)
             {
                 var itemLine = string.Format("{0}[{0}={1}]", HashString, string.Join("^", Sources.Select(m => m.HashString)));
                 foreach (var source in Sources)
                 {
-                    if (outLine != null)
+                    string lineString = outLine != null ? $"{itemLine} --> {outLine}" : itemLine;
+                    if (!lines.Contains(lineString))
                     {
-                        lines.Add($"{itemLine} --> {outLine}");
+                        lines.Add(lineString);
+                        output.WriteLine(lineString);
                     }
-                    else
-                    {
-                        lines.Add($"{itemLine}");
-                    }
-                    source.GenerateMermaid(lines, HashString);
+                    source.GenerateMermaid(lines, output, HashString);
                 }
             }
             else
             {
-                lines.Add($"{HashString} --> {outLine}");
+                var lineString = $"{HashString} --> {outLine}";
+                if (!lines.Contains(lineString))
+                {
+                    lines.Add(lineString);
+                    output.WriteLine(lineString);
+                }
             }
         }
     }
