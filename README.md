@@ -40,9 +40,13 @@ and 1-2 seconds for 256 bits.
 
 ## Usage
 
-This is a command line tool and a library.
-To use it in your projects, just copy the library to your solution and add it as reference,
-or build the library and just add the DLL.
+This project provides a UI, command line utility, and library.
+
+To use it in your projects, just copy the library to your solution and add it as reference, or build the library and just add the DLL.
+
+The UI is a simple "double click and go" type of application. Simply fill out the hash fields and click the button to break the XOR sum. You don't have to copy and paste the hash list, but instead you can drag one or more (at once) files onto the textbox to read hashes from them. The expected structure of the files is explained in the "Source Hashes" command line help section further below.
+
+Note: If you build it in debug mode it autofills randomly generated values for testing.
 
 You can also use it using the provided command line tool.
 Usage is as follows:

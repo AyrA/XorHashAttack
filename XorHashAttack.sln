@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XorHashAttack.Console", "XorHashAttack.Console\XorHashAttack.Console.csproj", "{CB1B8F2D-7268-4BD6-8ABB-5CCA6513C1EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XorHashAttack.Console", "XorHashAttack.Console\XorHashAttack.Console.csproj", "{CB1B8F2D-7268-4BD6-8ABB-5CCA6513C1EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XorHashAttack.Lib", "XorHashAttack.Lib\XorHashAttack.Lib.csproj", "{5E8A3289-7273-40A4-A725-8281DD757CDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XorHashAttack.Lib", "XorHashAttack.Lib\XorHashAttack.Lib.csproj", "{5E8A3289-7273-40A4-A725-8281DD757CDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XorHashAttack.UI", "XorHashAttack.UI\XorHashAttack.UI.csproj", "{4F18DF75-719B-463C-A107-911109BD4C3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5E8A3289-7273-40A4-A725-8281DD757CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E8A3289-7273-40A4-A725-8281DD757CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E8A3289-7273-40A4-A725-8281DD757CDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F18DF75-719B-463C-A107-911109BD4C3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F18DF75-719B-463C-A107-911109BD4C3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F18DF75-719B-463C-A107-911109BD4C3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F18DF75-719B-463C-A107-911109BD4C3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
