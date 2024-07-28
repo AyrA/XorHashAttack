@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using XorHashAttack.Lib.Internals;
 
-namespace TestLib.XorAttack
+namespace XorHashAttack.Lib
 {
     /// <summary>
     /// Provides means to attack a XOR sum

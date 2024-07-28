@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
-using TestLib.XorAttack;
-using XorHashAttack.Lib.Internals;
+using XorHashAttack.Lib;
 
 int result;
 bool verbose = args.Contains("/V", StringComparer.OrdinalIgnoreCase);

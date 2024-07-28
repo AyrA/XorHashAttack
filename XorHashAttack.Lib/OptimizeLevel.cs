@@ -1,4 +1,4 @@
-﻿namespace TestLib.XorAttack
+﻿namespace XorHashAttack.Lib
 {
     /// <summary>
     /// XOR sum builder optimiziation level

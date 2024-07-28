@@ -1,5 +1,4 @@
-﻿
-namespace XorHashAttack.Lib.Internals
+﻿namespace XorHashAttack.Lib.Internals
 {
     /// <summary>
     /// A XOR hash source

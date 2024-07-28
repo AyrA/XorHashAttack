@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using XorHashAttack.Lib.Internals;
 
-namespace XorHashAttack.Lib.Internals
+namespace XorHashAttack.Lib
 {
     /// <summary>
     /// Compares byte arrays by value instead of by reference
