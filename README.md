@@ -90,7 +90,7 @@ than mermaid is willing to process by default, and you may need to raise the lim
 
 The argument is mutually exclusive with `/O` because the mermaid output always renders the unoptimized hash tree. The optimized tree would just be a bunch of hashes directly pointing to the end result.
 
-**CAUTION!** This is an incredibly verbose process. Generating the mermaid output for a 512 hash XOR sum easily creates 100 MB of text because it will contain around 200'000 lines. Creating this (including the hash computations) would take around 1-2 minutes. Mermaid output is for demonstration purposes only and should not be used for hashes longer than 16 bits (2 bytes) because the mermaid tool would likely hang for a long time to parse and render the diagram.
+**CAUTION!** This is an incredibly verbose process. Generating the mermaid output for a 512 bit hash XOR sum easily creates 100 MB of text because it will contain around 200'000 lines. Creating this (including the hash computations) would take around 1-2 minutes. Mermaid output is for demonstration purposes only and should not be used for hashes longer than 16 bits (2 bytes) because the mermaid tool would likely hang for a long time to parse and render the diagram.
 
 ### `/V` Verbose output
 
