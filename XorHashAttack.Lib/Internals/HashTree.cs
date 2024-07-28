@@ -37,8 +37,9 @@
         /// <param name="output">
         /// Output to write to
         /// </param>
-        public void GenerateMermaid(TextWriter output)
-            => GenerateMermaid([], output, null);
+        /// <param name="cancellationToken">Token to cancel the operation</param>
+        public void GenerateMermaid(TextWriter output, CancellationToken? cancellationToken)
+            => GenerateMermaid([], output, null, cancellationToken);
 
         /// <summary>
         /// Recursively generates a mermaid entry for this node
@@ -52,8 +53,10 @@
         /// Output line of parent entry to reference in this entry.
         /// This is null if this is the root node
         /// </param>
-        private void GenerateMermaid(IList<HashTree> processedNodes, TextWriter output, string? outLine = null)
+        /// <param name="cancellationToken">Token to cancel the operation</param>
+        private void GenerateMermaid(IList<HashTree> processedNodes, TextWriter output, string? outLine, CancellationToken? cancellationToken)
         {
+            cancellationToken?.ThrowIfCancellationRequested();
             if (processedNodes.Contains(this))
             {
                 return;
@@ -66,7 +69,7 @@
                 output.WriteLine(lineString);
                 foreach (var source in Sources)
                 {
-                    source.GenerateMermaid(processedNodes, output, HashString);
+                    source.GenerateMermaid(processedNodes, output, HashString, cancellationToken);
                 }
             }
             else

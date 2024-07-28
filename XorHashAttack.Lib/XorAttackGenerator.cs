@@ -107,7 +107,7 @@ namespace XorHashAttack.Lib
             //The mermaid code is based on the unoptimized hash tree.
             //This way we can see how the tree looks that the hash finder created
             output.WriteLine("flowchart TD");
-            htp.RootNode.GenerateMermaid(Console.Out);
+            htp.RootNode.GenerateMermaid(Console.Out, cancellationToken);
         }
 
         /// <summary>Checks parameters for conformity</summary>
